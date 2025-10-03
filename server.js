@@ -11,13 +11,13 @@ const server = http.createServer((req, res) => {
 
     if (path === "/") {
         licznik++;
-        res.end(`<h1>Witaj na stronie!</h1><p>Odwiedziłeś ją już ${licznik} razy.</p>`);
+        res.end(`<p>Witaj na stronie! Odwiedziłeś ją już ${licznik} razy.</p>`);
     } 
     else if (path === "/add") {
         const name = parsedUrl.query.name;
 
         if (!name) {
-            res.end("Brak parametru 'name'. Użyj np. /add?name=Jan");
+            res.end("Brak parametru name. Użyj /add?name=Jan");
             return;
         }
 
@@ -49,3 +49,4 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
     console.log("Serwer działa na porcie 3000");
 });
+
